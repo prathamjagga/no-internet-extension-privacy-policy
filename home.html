@@ -1,1 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="No Internet — a customizable Chrome offline page with themes and the dino game."
+    />
+    <title>No Internet — Chrome Extension</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --text: #1a1a1a;
+        --muted: #5c5c5c;
+        --border: #e2e2e2;
+        --surface: #f7f7f8;
+        --accent: #4a5568;
+        --accent-hover: #2d3748;
+      }
 
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --text: #f2f2f2;
+          --muted: #a8a8a8;
+          --border: #333;
+          --surface: #1a1a1a;
+          --accent: #cbd5e0;
+          --accent-hover: #fff;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background: #fff;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          background: #0f0f0f;
+        }
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .wrap {
+        max-width: 52rem;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 3rem;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      header img {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 0.75rem;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 1.75rem;
+        line-height: 1.2;
+      }
+
+      .tagline {
+        margin: 0.25rem 0 0;
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      .lead {
+        font-size: 1.05rem;
+        margin: 0 0 1.5rem;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.625rem 1.125rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9375rem;
+        border: 1px solid transparent;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .btn-primary {
+          color: #0f0f0f;
+        }
+      }
+
+      .btn-primary:hover {
+        background: var(--accent-hover);
+      }
+
+      .btn-secondary {
+        border-color: var(--border);
+        background: var(--surface);
+      }
+
+      h2 {
+        font-size: 1.15rem;
+        margin: 2rem 0 0.75rem;
+      }
+
+      ul.features {
+        margin: 0;
+        padding-left: 1.25rem;
+      }
+
+      ul.features li {
+        margin-bottom: 0.35rem;
+      }
+
+      .shots {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      figure {
+        margin: 0;
+        border: 1px solid var(--border);
+        border-radius: 0.625rem;
+        overflow: hidden;
+        background: var(--surface);
+      }
+
+      figure img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      figcaption {
+        padding: 0.625rem 0.875rem;
+        font-size: 0.875rem;
+        color: var(--muted);
+        border-top: 1px solid var(--border);
+      }
+
+      footer {
+        margin-top: 2.5rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--border);
+        font-size: 0.875rem;
+        color: var(--muted);
+      }
+
+      footer a {
+        color: var(--text);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <img src="icons/icon128.png" width="128" height="128" alt="" />
+        <div>
+          <h1>No Internet</h1>
+          <p class="tagline">Chrome extension</p>
+        </div>
+      </header>
+
+      <p class="lead">
+        A customizable offline page with themes and the classic dino game — shown
+        automatically when your connection drops.
+      </p>
+
+      <div class="actions">
+        <!-- Replace href with your Chrome Web Store URL after approval -->
+        <a
+          class="btn btn-primary"
+          href="https://chromewebstore.google.com/"
+          id="store-link"
+        >
+          Add to Chrome
+        </a>
+        <a class="btn btn-secondary" href="privacy-policy.html">Privacy policy</a>
+      </div>
+
+      <h2>Features</h2>
+      <ul class="features">
+        <li>Redirects to a Chrome-style offline page on network errors</li>
+        <li>Four built-in themes plus unlimited custom backgrounds</li>
+        <li>Per-theme colors, opacity, and try-step text</li>
+        <li>Built-in dino runner with saved high score</li>
+        <li>Toolbar button to preview the page anytime</li>
+        <li>All data stays on your device — no tracking</li>
+      </ul>
+
+      <h2>Screenshots</h2>
+      <div class="shots">
+        <figure>
+          <img src="screenshots/ss1.png" width="1280" height="800" alt="Superhero theme with theme drawer open" />
+          <figcaption>Custom themes and per-theme settings</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/ss2.png" width="1280" height="800" alt="Dino game running on the offline page" />
+          <figcaption>The dino game with score tracking</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/ss3.png" width="1280" height="800" alt="Starlit theme on the offline page" />
+          <figcaption>Starlit theme — a calmer way to wait for Wi‑Fi</figcaption>
+        </figure>
+      </div>
+
+      <footer>
+        <p>
+          Contact:
+          <a href="mailto:prathamjagga123@gmail.com">prathamjagga123@gmail.com</a>
+          ·
+          <a href="https://www.linkedin.com/in/pratham-jagga/">LinkedIn</a>
+          ·
+          <a href="https://buymeacoffee.com/hipratham">Buy Me a Coffee</a>
+        </p>
+        <p>© 2026 No Internet extension</p>
+      </footer>
+    </div>
+  </body>
+</html>
